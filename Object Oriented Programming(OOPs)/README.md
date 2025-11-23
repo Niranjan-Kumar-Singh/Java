@@ -1,4 +1,3 @@
-```markdown
 # Object Oriented Programming (OOPs) in Java
 
 This section contains a complete, structured, and well-documented set of Java programs covering all major OOPs topics.  
@@ -16,7 +15,6 @@ The folder is designed to be:
 ## 📁 Folder Structure
 
 ```
-
 Object Oriented Programming(OOPs)/
 │
 ├── 01_Basics/
@@ -48,8 +46,7 @@ Object Oriented Programming(OOPs)/
 │     └── HierarchicalInheritanceDemo.java
 │
 └── Oops.java   (Master theory file)
-
-````
+```
 
 ---
 
@@ -113,7 +110,7 @@ It is written entirely in comments so it compiles and stays inside the project a
 cd "01_Basics"
 javac *.java
 java ClassAndObjectDemo
-````
+```
 
 ```bash
 cd "02_GettersSetters_Encapsulation"
@@ -139,17 +136,14 @@ Each folder includes one main demo file based on the topic group.
 
 ## 🎓 Why This Structure?
 
-* Cleaner than keeping all files in one folder
-* Perfect for revision before interviews
-* Easy to understand topic grouping
-* Each concept has its own small, focused example
-* Allows adding more OOP topics (Polymorphism, Abstraction, Interfaces, etc.)
+- Cleaner than keeping all files in one folder  
+- Perfect for revision before interviews  
+- Easy to understand topic grouping  
+- Each concept has its own small, focused example  
+- Allows adding more OOP topics (Polymorphism, Abstraction, Interfaces, etc.)
 
 ---
 
-## ❤️ Author
-
-**Niranjan Kumar Singh**
+## ❤️ Author  
+**Niranjan Kumar Singh**  
 Java DSA & OOPs Practice Repository
-
-```

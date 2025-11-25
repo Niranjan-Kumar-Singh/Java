@@ -45,7 +45,24 @@ Object Oriented Programming(OOPs)/
 │     ├── MultiLevelInheritanceDemo.java
 │     └── HierarchicalInheritanceDemo.java
 │
-└── Oops.java   (Master theory file)
+├── 05_Polymorphism/
+│     ├── Calculator.java
+│     ├── MethodOverloadingDemo.java
+│     ├── Animal.java
+│     ├── Deer.java
+│     ├── Dog.java
+│     ├── MethodOverridingDemo.java
+│     ├── RuntimePolymorphismDemo.java
+│     └── PolymorphismNotes.txt
+│
+├── 06_Abstraction/
+│     ├── Animal.java
+│     ├── Dog.java
+│     ├── Cat.java
+│     ├── AbstractClassDemo.java
+│     └── AbstractionNotes.txt
+│
+└── Oops.java (Master theory file)
 ```
 
 ---
@@ -82,7 +99,23 @@ This OOP directory covers **every important OOP concept**, including:
 - Method Overriding basics  
 - Code reuse and polymorphism foundations  
 
-(Additional folders like Polymorphism, Abstraction, Interfaces, etc. will be added as development continues.)
+### ✔ 05 — Polymorphism  
+- Compile-Time Polymorphism (Method Overloading)  
+- Runtime Polymorphism (Method Overriding)  
+- Dynamic Method Dispatch  
+- Polymorphic references  
+- Practical and interview-based examples  
+- Detailed theory notes  
+
+### ✔ 06 — Abstraction  
+- Abstract classes  
+- Abstract methods  
+- Partial abstraction  
+- Constructor behavior in abstract classes  
+- When to use abstraction  
+- Detailed theory notes  
+
+(Next topics such as Interfaces, Packages, Static & Super Keywords, etc. will follow.)
 
 ---
 
@@ -128,6 +161,18 @@ java CopyConstructorDemo
 cd "04_Inheritance"
 javac *.java
 java SingleInheritanceDemo
+```
+
+```bash
+cd "05_Polymorphism"
+javac *.java
+java MethodOverloadingDemo
+```
+
+```bash
+cd "06_Abstraction"
+javac *.java
+java AbstractClassDemo
 ```
 
 Each folder includes one main demo file based on the topic group.

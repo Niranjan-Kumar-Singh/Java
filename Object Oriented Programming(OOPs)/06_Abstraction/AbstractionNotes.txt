@@ -1,0 +1,151 @@
+ABSTRACTION — Complete Notes
+============================
+
+1) What is Abstraction?
+-----------------------
+Abstraction means:
+   "Hiding all unnecessary details and showing only the important parts to the user."
+
+Real-world examples:
+   - Car driver uses steering, brake, accelerator (important)
+     but does not need to know engine mechanism (hidden).
+   - ATM hides internal banking operations from user.
+
+In Java, abstraction is implemented using:
+   1. Abstract Classes
+   2. Interfaces (covered in 07_Interfaces)
+
+This folder focuses ONLY on abstract classes.
+
+
+2) Abstract Classes
+-------------------
+An abstract class is a class declared with the `abstract` keyword.
+
+Example:
+    abstract class Animal {
+        abstract void sound();
+    }
+
+Characteristics:
+----------------
+✓ Cannot create object directly  
+  Animal a = new Animal();   // ❌ Not allowed
+
+✓ Can have:
+   - abstract methods (without body)
+   - normal methods (with body)
+   - variables
+   - constructors
+   - static methods
+   - final methods
+
+✓ MUST be inherited
+
+
+3) Abstract Methods
+-------------------
+A method without implementation (no body).
+
+Example:
+    abstract void sound();
+
+Rules:
+------
+✓ No body  
+✓ Ends with semicolon  
+✓ Child class MUST implement it  
+✓ If subclass does NOT implement all abstract methods → subclass also becomes abstract  
+
+
+4) Why Use Abstract Classes?
+----------------------------
+- To enforce a rule for child classes  
+- To provide a template or blueprint  
+- To implement common behavior in base class  
+- To force subclasses to override specific methods  
+- Encourages cleaner, structured code  
+
+
+5) Constructor in Abstract Classes
+----------------------------------
+Important point:
+    Abstract class CAN have constructors.
+
+Why?
+    They run BEFORE subclass constructor to initialize base variables.
+
+Example flow:
+    new Dog();
+        → Animal constructor
+        → Dog constructor
+
+
+6) Differences: Abstract Class vs Concrete Class
+-------------------------------------------------
+
+| Feature             | Abstract Class              | Concrete Class        |
+|-------------------- |-----------------------------|-----------------------|
+| Object creation     | Not allowed                 | Allowed               |
+| Abstract methods    | Can have                    | Cannot have           |
+| Constructors        | Allowed                     | Allowed               |
+| Purpose             | Provide partial structure   | Full implementation   |
+| Inheritance         | MUST be inherited           | Optional              |
+
+
+7) When to Use Abstract Classes?
+--------------------------------
+Use an abstract class when:
+✓ You want to provide a base class with common code  
+✓ You want some methods mandatory for subclasses  
+✓ You want shared variables and constructors  
+✓ You want to define a partial implementation plus rules  
+
+
+8) Example Summary
+------------------
+
+abstract class Animal {
+    abstract void sound();  // must be overridden
+    void sleep() {}         // common across all animals
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() { System.out.println("Dog barks"); }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() { System.out.println("Cat meows"); }
+}
+
+
+9) Interview Questions
+----------------------
+
+1. What is abstraction?
+2. Can abstract classes have constructors?
+3. Can abstract classes have normal methods?
+4. Can an abstract class have zero abstract methods?
+5. Difference between abstract class and interface?
+6. Can an abstract class have static methods?
+7. Can abstract classes have final methods?
+8. What happens if subclass does not implement an abstract method?
+9. Why can’t we create objects of an abstract class?
+10. Why do we need abstraction in real-world projects?
+
+
+10) Summary (Easy to Remember)
+------------------------------
+✔ Abstraction hides details and shows essential parts  
+✔ Abstract class = partial abstraction  
+✔ Cannot instantiate abstract class  
+✔ Can have constructors & normal methods  
+✔ Subclass MUST implement abstract methods  
+✔ Used for common shared logic + rules  
+✔ Interfaces provide full abstraction (covered in next topic)
+
+===============================
+END OF ABSTRACTION NOTES
+===============================

@@ -1,0 +1,174 @@
+Polymorphism — Detailed Notes
+==============================
+
+1) What is Polymorphism?
+------------------------
+Polymorphism means “many forms”.
+A single function name can perform different behaviors depending on:
+- the number of arguments
+- the type of arguments
+- the object calling it
+
+Example:
+    sum(2,3)
+    sum(2.5f, 3.5f)
+    sum(1,2,3)
+
+Same method name → different behavior → polymorphism.
+
+
+2) Types of Polymorphism in Java
+--------------------------------
+Java supports two types:
+
+A) Compile-Time Polymorphism (Static Polymorphism)
+   - Achieved through Method Overloading
+   - Decision happens at compile time
+   - Also known as early binding
+
+B) Runtime Polymorphism (Dynamic Polymorphism)
+   - Achieved through Method Overriding
+   - Decision happens at runtime
+   - Uses Dynamic Method Dispatch
+   - Also known as late binding
+
+
+3) Method Overloading (Compile-Time)
+------------------------------------
+Definition:
+    Multiple methods in the same class having the same name but different
+    parameter lists (type/number/order).
+
+Overloading Rules:
+    ✓ Same method name
+    ✓ Different parameter list (number/type/order)
+    ✓ Return type alone CANNOT overload methods
+    ✓ Can overload methods AND constructors
+    ✓ Resolved at compile-time
+
+Why Overload?
+    - Convenience (multiple ways to call same action)
+    - Clean, readable API
+    - Example: print(), constructors, utility methods
+
+
+4) Method Overriding (Runtime)
+------------------------------
+Definition:
+    When a child class provides its own version of a method already defined in the parent class.
+
+Overriding Rules:
+    ✓ Same method name
+    ✓ Same parameter list
+    ✓ Same return type OR covariant return type
+    ✓ Must be in child class
+    ✓ Cannot reduce visibility (public → private is not allowed)
+    ✓ Static methods CANNOT be overridden (method hiding occurs)
+    ✓ final methods CANNOT be overridden
+    ✓ private methods CANNOT be overridden
+    ✓ @Override annotation is recommended
+
+Why Override?
+    - To provide specific behavior in child classes
+    - To achieve runtime polymorphism
+
+
+5) Dynamic Method Dispatch (Runtime Polymorphism)
+-------------------------------------------------
+This is the process where:
+    Reference type  = Parent
+    Object type     = Child
+
+Example:
+    Animal a = new Deer();
+    a.eat(); // calls Deer's eat()
+
+JVM decides at runtime which method to call based on actual object type.
+
+This is the heart of runtime polymorphism.
+
+
+6) Difference Between Overloading & Overriding
+----------------------------------------------
+
+| Feature               | Overloading                          | Overriding                           |
+|---------------------- |--------------------------------------|--------------------------------------|
+| Type of Polymorphism  | Compile-time                         | Runtime                              |
+| Method Signature      | Different                            | Same                                 |
+| Class                 | Same class                           | Parent-child relationship required   |
+| Return Type           | Can change                           | Must be same or covariant            |
+| Access Modifier       | Can change freely                    | Cannot reduce visibility             |
+| Static allowed?       | Yes                                  | No (static = method hiding)          |
+| Binding Time          | Early binding                        | Late binding                         |
+
+
+7) When to Use?
+----------------
+Overloading:
+    - When you want multiple ways to perform similar operations
+    - Utility functions
+    - Constructor variations
+
+Overriding:
+    - When subclass needs different behavior
+    - Polymorphic code (frameworks, libraries)
+    - Specializations (Dog vs Animal behavior)
+
+
+8) Practical Tips
+-----------------
+✓ Always use @Override in overridden methods  
+✓ Avoid too many overloaded methods (confusing signatures)  
+✓ Prefer interface-based polymorphism for flexible code  
+✓ Use instanceof + casting sparingly  
+✓ Overloading improves API usability  
+✓ Overriding implements real-world behavior differences
+
+
+9) Memory & JVM Behavior
+------------------------
+Overloading:
+    - Compiler selects correct method based on parameter types
+    - Resolved at compile-time
+
+Overriding:
+    - JVM looks at object type during execution
+    - Calls child class method
+    - Resolved at runtime
+    - Enables dynamic dispatch
+
+
+10) Common Interview Questions
+------------------------------
+1. What is polymorphism?
+2. Difference between compile-time and runtime polymorphism.
+3. What is method overloading?
+4. What is method overriding?
+5. Can private methods be overridden?
+6. Can constructors be overridden?
+7. Can static methods be overridden?
+8. What is method hiding?
+9. What is covariant return type?
+10. Why is runtime polymorphism called dynamic binding?
+11. Why does Java not support operator overloading?
+12. Can we overload the main() method?
+13. What happens if you override a method with a different return type?
+14. Can we override final methods?
+
+
+11) Summary (Easy to Remember)
+------------------------------
+✔ Polymorphism = One name, many forms  
+✔ Overloading = Compile-time polymorphism  
+✔ Overriding = Runtime polymorphism  
+✔ Overloading differs by parameters  
+✔ Overriding differs by implementation  
+✔ Overloading = same class  
+✔ Overriding = inheritance  
+✔ Static & private methods CANNOT be overridden  
+✔ JVM chooses overridden method at runtime  
+✔ Compiler chooses overloaded method at compile-time  
+
+==============================
+END OF POLYMORPHISM NOTES
+==============================

@@ -1,0 +1,106 @@
+INTERFACES — Complete Notes
+===========================
+
+1) What is an Interface?
+------------------------
+Interface is the BLUEPRINT of a class.
+It contains only the ideas (methods), not the implementation.
+
+Purpose of interface:
+1. To achieve TOTAL abstraction  
+2. To implement MULTIPLE inheritance in Java  
+
+Real world:
+Remote control → Interface  
+TV, AC, Fan → Implementations
+
+
+2) Properties of Interface
+--------------------------
+✓ Cannot create objects  
+✓ Cannot have constructors  
+✓ Methods are:
+   - public
+   - abstract
+   - without implementation
+   (until Java 7)
+
+✓ Variables are:
+   - public
+   - static
+   - final
+   (whether you write it or not)
+
+✓ A class can implement MULTIPLE interfaces
+
+
+3) Modern Interface Features (Java 8+)
+--------------------------------------
+Java 8 added:
+✓ default methods  
+✓ static methods  
+
+Java 9 added:
+✓ private methods  
+
+
+4) Example
+----------
+
+interface Car {
+    void start();            // abstract
+    default void stop() {}   // default
+    static void wheels() {}  // static
+}
+
+class ElectricCar implements Car {
+    public void start() {}
+}
+
+
+5) Multiple Inheritance Using Interfaces
+----------------------------------------
+Java does NOT support multiple inheritance with classes.
+
+But multiple inheritance IS allowed with interfaces:
+
+interface A { void showA(); }
+interface B { void showB(); }
+
+class C implements A, B {}
+
+
+6) Abstract Class vs Interface
+------------------------------
+
+| Feature          | Abstract Class               | Interface                      |
+|------------------|------------------------------|--------------------------------|
+| Abstraction      | Partial                      | 100%                           |
+| Constructors     | YES                          | NO                             |
+| Variables        | Normal allowed               | public static final only       |
+| Methods          | Abstract + Normal + Static   | Abstract + Default + Static    |
+| Multiple Inherit | NO                           | YES                            |
+
+
+7) When to Use Interface?
+-------------------------
+✓ When you need 100% abstraction  
+✓ When different classes share common behavior but not common parent  
+✓ When you need multiple inheritance  
+✓ When you create plugins, services, layers (industry standard)
+
+
+8) Interview Questions
+----------------------
+1. What is an interface?
+2. Can we create object of an interface?
+3. Why interface doesn't have constructors?
+4. Difference between abstract class and interface.
+5. What are default and static methods in interface?
+6. Can interface variables be changed?
+7. How does interface support multiple inheritance?
+
+
+=====================
+END OF INTERFACE NOTES
+=====================

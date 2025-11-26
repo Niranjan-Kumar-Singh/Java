@@ -1,0 +1,58 @@
+Static Keyword — Notes
+======================
+
+1) What is 'static'?
+--------------------
+- 'static' makes a member belong to the class, not to instances.
+- There is only one copy of static fields per class loader.
+
+2) What can be static?
+----------------------
+- Variables (static fields)
+- Methods (static methods)
+- Blocks (static initialization blocks)
+- Nested classes (static nested classes / static inner classes)
+
+3) Static Variables
+-------------------
+- Shared across all instances.
+- Useful for constants, counters, caches.
+- Access via ClassName.variable (recommended).
+
+Example:
+    class A { static int count; }
+
+4) Static Methods
+-----------------
+- Called without creating objects: ClassName.method()
+- Cannot access non-static (instance) members directly.
+- Useful for utility functions (e.g., Math.sqrt).
+
+5) Static Initialization Block
+------------------------------
+- Runs once when the class is loaded.
+- Useful for complex static initialization (reading config, preparing maps).
+- Executes before main or any constructor when class loads.
+
+6) Static Nested Classes
+------------------------
+- Declared static inside a class.
+- Do not require an outer class instance to be created.
+- Useful for grouping helper classes (builders, helpers).
+
+7) Common Interview Points
+--------------------------
+- Difference between static and instance members.
+- When static initialization block runs.
+- Can static methods be overridden? (No; they are hidden)
+- Static variables and thread-safety (use synchronization for shared mutable static state)
+- Why static is used for main method? (JVM needs an entry point without creating an object)
+
+8) Best Practices
+-----------------
+- Prefer constants: public static final TYPE NAME = value;
+- Keep mutable static variables to a minimum.
+- Access static via ClassName to improve readability.
+- Use static nested classes for logical grouping, not inner classes that need references to outer instances.
+
+End of Static notes.

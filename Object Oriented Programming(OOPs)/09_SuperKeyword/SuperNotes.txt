@@ -1,0 +1,83 @@
+SUPER KEYWORD — COMPLETE NOTES
+==============================
+
+1) What is super?
+-----------------
+super is a keyword used to refer to the immediate parent class object.
+
+super has 3 major uses:
+1. To access parent's variables
+2. To access parent's methods
+3. To call parent's constructor (constructor chaining)
+
+super is always used inside a child class.
+
+
+2) Accessing Parent Variables
+-----------------------------
+If child and parent have same variable name:
+
+    super.variableName
+
+Used to avoid confusion when both parent and child contain
+variables with the same name.
+
+
+3) Accessing Parent Methods
+---------------------------
+If child overrides a parent method, you can still call the
+parent version using:
+
+    super.methodName();
+
+
+4) Calling Parent Constructor
+-----------------------------
+super() must be the FIRST line inside a child constructor.
+
+Examples:
+    super();                // calls parent's default constructor
+    super("message");       // calls parent's parameterized constructor
+
+
+5) Constructor Chaining
+-----------------------
+Constructor chaining means:
+Child constructor → calls Parent constructor → completes execution.
+
+Java automatically inserts super() if you don't write it.
+
+Example flow:
+    new Child()
+        → Parent()
+        → Child()
+
+
+6) Why use super?
+-----------------
+- To reuse parent code
+- To avoid naming conflicts
+- To maintain clarity
+- To ensure proper initialization of parent class members
+
+
+7) Can't use super in static context
+------------------------------------
+super belongs to object-level hierarchy, not class-level.
+
+So:
+    static methods cannot use super()
+
+
+8) Interview Questions
+----------------------
+1. What is super? Why do we use it?
+2. Can super be used in static methods? (No)
+3. Can super() be anywhere in constructor? (No, must be first line)
+4. What happens if we don’t write super()?
+5. Difference between this() and super()?
+
+
+=====================
+END OF SUPER NOTES
+=====================

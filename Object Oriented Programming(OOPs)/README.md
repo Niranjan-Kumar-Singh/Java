@@ -62,6 +62,51 @@ Object Oriented Programming(OOPs)/
 │     ├── AbstractClassDemo.java
 │     └── AbstractionNotes.txt
 │
+├── 07_Interface/
+│     ├── A.java
+│     ├── B.java
+│     ├── Car.java
+│     ├── ElectricCar.java
+│     ├── DieselCar.java
+│     ├── MultipleInheritanceDemo.java
+│     ├── InterfaceDemo.java
+│     └── InterfaceNotes.txt
+│
+├── 08_StaticKeyword/
+│     ├── StaticVariablesDemo.java
+│     ├── StaticMethodsDemo.java
+│     ├── StaticBlockDemo.java
+│     ├── NestedStaticClassDemo.java
+│     ├── StaticCounter.java
+│     └── StaticNotes.txt
+│
+├── 09_SuperKeyword/
+│     ├── Parent.java
+│     ├── Child.java
+│     ├── ConstructorChainingParent.java
+│     ├── ConstructorChainingChild.java
+│     ├── SuperKeywordDemo.java
+│     └── SuperNotes.txt
+│
+├── 10_Packages/
+│     ├── src/com/example/pkg1/.java
+│     ├── src/com/example/pkg2/.java
+│     ├── src/com/example/app/PackageDemo.java
+│     ├── PackageNotes.txt
+│     └── out/ (compiled classes)
+│
+├── 11_FinalKeyword/
+│     ├── models/
+│     │     ├── FinalPerson.java
+│     │     ├── FinalBox.java
+│     │     ├── FinalParent.java
+│     │     └── FinalChild.java
+│     ├── FinalVariableDemo.java
+│     ├── FinalReferenceDemo.java
+│     ├── FinalMethodDemo.java
+│     ├── FinalClassDemo.java
+│     └── FinalNotes.txt
+│
 └── Oops.java (Master theory file)
 ```
 
@@ -115,7 +160,42 @@ This OOP directory covers **every important OOP concept**, including:
 - When to use abstraction  
 - Detailed theory notes  
 
-(Next topics such as Interfaces, Packages, Static & Super Keywords, etc. will follow.)
+### ✔ 07 — Interfaces  
+- Total abstraction  
+- Multiple inheritance  
+- Default & static methods in interfaces  
+- Real project-like examples  
+- Notes included  
+
+### ✔ 08 — Static Keyword  
+- Static variables/methods  
+- Static block  
+- Static nested classes  
+- Counters & utilities  
+- Notes included  
+
+### ✔ 09 — Super Keyword  
+- Access parent variables  
+- Access parent methods  
+- Constructor chaining  
+- Notes included  
+
+### ✔ 10 — Packages  
+- Realistic package structure  
+- Access modifiers across packages  
+- Compilation with `-d`  
+- Running via classpath  
+- Notes included  
+
+### ✔ 11 — Final Keyword  
+- Final variable  
+- Final reference  
+- Final method  
+- Final class  
+- Blank final  
+- Notes included  
+
+(Upcoming topics: Object class methods, Wrapper classes, Exception handling, etc.)
 
 ---
 
@@ -173,6 +253,36 @@ java MethodOverloadingDemo
 cd "06_Abstraction"
 javac *.java
 java AbstractClassDemo
+```
+
+```bash
+cd "07_Interface"
+javac *.java
+java InterfaceDemo
+```
+
+```bash
+cd "08_StaticKeyword"
+javac *.java
+java StaticVariablesDemo
+```
+
+```bash
+cd "09_SuperKeyword"
+javac *.java
+java SuperKeywordDemo
+```
+
+```bash
+cd "10_Packages"
+javac -d out src/com/example/app/PackageDemo.java
+java -cp out com.example.app.PackageDemo
+```
+
+```bash
+cd "11_FinalKeyword"
+javac models/*.java *.java
+java FinalVariableDemo
 ```
 
 Each folder includes one main demo file based on the topic group.

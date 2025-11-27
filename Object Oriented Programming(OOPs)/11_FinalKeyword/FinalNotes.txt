@@ -1,0 +1,43 @@
+Final Keyword — Complete Notes
+==============================
+
+1) What does final mean?
+   - 'final' marks members or classes as unchangeable in specific ways:
+     • final variable: value/reference cannot be reassigned after initialization
+     • final method: cannot be overridden by subclasses
+     • final class: cannot be extended (no subclassing)
+
+2) Final variables
+   - Primitive final: value cannot change
+   - Reference final: reference cannot be reassigned, but object's internal state can be mutated
+   - Blank final: a final instance variable without initializer; must be assigned exactly once (in constructor or instance initializer)
+   - Final local variables: cannot be reassigned after set
+
+3) Final methods
+   - Prevent overriding, useful to lock behavior
+   - Often used in security-sensitive or library classes
+
+4) Final classes
+   - Prevent inheritance
+   - Common in immutable classes (e.g., java.lang.String)
+   - Useful when you want to guarantee behavior won't change via subclassing
+
+5) Final vs finally vs finalize
+   - final: keyword (this topic)
+   - finally: block in try-catch used for cleanup
+   - finalize(): method in Object called by GC (deprecated, avoid using)
+
+6) Common interview points
+   - Can final variable be left uninitialized? (Yes, as blank final assigned later)
+   - Can final fields be serialized? (Yes, but special rules may apply)
+   - Is it good practice to use final everywhere? (Used for immutability and thread-safety, but not blindly)
+   - Can a method be both static and final? (Yes; static methods are hidden, not overridden. final prevents override but static cannot be overridden anyway)
+
+7) Example summary
+   - final int x = 5; // cannot change x
+   - final Person p = new Person("A"); p.setAge(20); // allowed, but p = new Person("B") is not
+
+8) Best practices
+   - Use final for constants: public static final TYPE NAME = value;
+   - Use final fields to create immutable objects
+   - Use final methods/classes when you need to prevent extension/override for correctness/security

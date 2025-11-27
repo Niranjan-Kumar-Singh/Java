@@ -1,0 +1,39 @@
+Packages in Java — Notes
+========================
+
+1) What is a package?
+   - A package groups related classes and interfaces.
+   - It corresponds to a folder structure in the filesystem.
+   - Helps avoid name collisions and controls visibility.
+
+2) Common package conventions:
+   - Use reverse-domain names: com.example.project
+   - Keep source files under a 'src' folder and compile to 'out' (or bin).
+
+3) Access modifiers and packages:
+   - public: accessible everywhere
+   - protected: accessible in same package and subclasses (even in other packages)
+   - default (no modifier): package-private — accessible only within same package
+   - private: accessible only within class
+
+4) Compile & run commands (PowerShell / Windows):
+   # from 10_Packages root:
+   javac -d out src\com\example\app\PackageDemo.java
+   java -cp out com.example.app.PackageDemo
+
+   # To compile everything explicitly:
+   javac -d out src\com\example\**\*.java
+
+5) Packaging best practices:
+   - Use packages to separate layers (model, service, util, api).
+   - Keep package-private members for internal API only.
+   - Use public API sparingly and document it.
+
+6) Common pitfalls:
+   - Forgetting package statement at top of file when moving file into package folders.
+   - Trying to access package-private members from another package (compile error).
+   - Using default package (no package) for production code — avoid it.
+
+7) IDE tips (VS Code / IntelliJ):
+   - When creating files, add package declaration first.
+   - Use 'javac -d out' to deploy classes into correct folders.

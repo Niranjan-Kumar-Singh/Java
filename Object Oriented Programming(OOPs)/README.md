@@ -5,8 +5,7 @@ Each topic has its own folder, examples, and a dedicated `Main` demo file.
 
 The folder is designed to be:
 - Easy to study  
-- Easy to navigate  
-- Interview-friendly  
+- Easy to navigate
 - Beginner-friendly  
 - Clean and professional for GitHub  
 
@@ -107,14 +106,23 @@ Object Oriented Programming(OOPs)/
 │     ├── FinalClassDemo.java
 │     └── FinalNotes.txt
 │
+├── 12_ObjectClassMethods/
+│     ├── models/
+│     │     ├── Product.java
+│     │     ├── Customer.java
+│     │     └── Employee.java
+│     ├── EqualsDemo.java
+│     ├── HashCodeDemo.java
+│     ├── ObjectMethodsDemo.java
+│     ├── ToStringDemo.java
+│     └── ObjectClassNotes.txt
+│
 └── Oops.java (Master theory file)
 ```
 
 ---
 
 ## 📚 Topics Covered
-
-This OOP directory covers **every important OOP concept**, including:
 
 ### ✔ 01 — Basics  
 - Classes & Objects  
@@ -193,9 +201,17 @@ This OOP directory covers **every important OOP concept**, including:
 - Final method  
 - Final class  
 - Blank final  
-- Notes included  
+- Notes included 
 
-(Upcoming topics: Object class methods, Wrapper classes, Exception handling, etc.)
+### ✔ 12 — Object Class Methods  
+- toString()  
+- equals()  
+- hashCode()  
+- getClass() 
+- Logical equality vs reference equality  
+- HashSet behavior
+- Real-world models 
+- Notes included 
 
 ---
 
@@ -285,17 +301,13 @@ javac models/*.java *.java
 java FinalVariableDemo
 ```
 
+```bash
+cd "12_ObjectClassMethods"
+javac models/*.java *.java
+java ToStringDemo
+```
+
 Each folder includes one main demo file based on the topic group.
-
----
-
-## 🎓 Why This Structure?
-
-- Cleaner than keeping all files in one folder  
-- Perfect for revision before interviews  
-- Easy to understand topic grouping  
-- Each concept has its own small, focused example  
-- Allows adding more OOP topics (Polymorphism, Abstraction, Interfaces, etc.)
 
 ---
 

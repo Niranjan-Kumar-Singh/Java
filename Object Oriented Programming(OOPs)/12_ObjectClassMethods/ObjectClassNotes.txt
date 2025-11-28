@@ -1,0 +1,154 @@
+OBJECT CLASS — Notes (Complete)
+===============================
+
+Overview
+--------
+- In Java, every class implicitly extends java.lang.Object (unless you explicitly extend another class).
+- Object is the root of the class hierarchy and defines several important methods that all Java objects inherit.
+- Understanding and properly overriding these methods (toString, equals, hashCode, clone) is essential for writing correct, predictable, and efficient Java code.
+
+Key Methods (what they do & why they matter)
+--------------------------------------------
+
+1) toString()
+--------------
+- Signature: public String toString()
+- Default behavior: returns ClassName@hexHashCode (not human-friendly).
+- Purpose: provide a readable representation of the object — useful for debugging, logging, and printing.
+- Best practice: override toString() to return meaningful field information.
+Example:
+@Override
+public String toString() {
+    return "Product[id=" + id + ", name=" + name + "]";
+}
+
+2) equals(Object obj)
+---------------------
+- Signature: public boolean equals(Object obj)
+- Default behavior: checks reference equality (this == obj).
+- Purpose: define logical equality (value equality) instead of reference equality.
+Rules:
+1. Reflexive
+2. Symmetric
+3. Transitive
+4. Consistent
+5. x.equals(null) must return false
+Typical Steps:
+- if (this == obj) return true;
+- if (obj == null || getClass() != obj.getClass()) return false;
+- Cast and compare fields
+
+3) hashCode()
+--------------
+- Signature: public int hashCode()
+- Must follow rule: if equals() is true → hashCode() must be same.
+Uses:
+- Important for HashSet, HashMap, Hashtable.
+Best Practice:
+- Use same fields as equals().
+- Use Objects.hash() or 31 * pattern.
+
+Example:
+@Override
+public int hashCode() {
+    int result = Integer.hashCode(id);
+    result = 31 * result + (name == null ? 0 : name.hashCode());
+    return result;
+}
+
+4) getClass()
+--------------
+- Signature: public final Class<?> getClass()
+- Returns runtime class.
+- Used in equals() to enforce strict type checking (getClass()) vs subclass-friendly (instanceof).
+
+5) clone()
+----------
+- Signature: protected Object clone() throws CloneNotSupportedException
+- Default: performs shallow copy.
+- To use clone(), class must implement Cloneable.
+- Generally avoided in modern Java due to complexity; prefer copy constructors.
+
+6) finalize()
+-------------
+- Signature: protected void finalize() throws Throwable
+- Called by Garbage Collector before object removal.
+- Deprecated in modern Java; not reliable. Avoid using it.
+
+Reference equality vs Value equality
+------------------------------------
+== → checks reference equality  
+equals() → checks logical/value equality
+
+Example:
+String a = new String("x");
+String b = new String("x");
+a == b → false  
+a.equals(b) → true
+
+Common Mistakes
+---------------
+- Overriding equals() but NOT hashCode() → breaks HashMap/HashSet behavior.
+- Using mutable fields inside hashCode() → object becomes “lost” in HashSet.
+- Using instanceof in equals() incorrectly → violates symmetry.
+
+Common Patterns
+---------------
+Simple equals/hashCode using primitive id:
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Product other = (Product) obj;
+    return this.id == other.id;
+}
+
+@Override
+public int hashCode() {
+    return Integer.hashCode(id);
+}
+
+toString() clean format:
+@Override
+public String toString() {
+    return "Employee[id=" + empId + ", dept=" + department + "]";
+}
+
+Why equals/hashCode mistakes break collections
+----------------------------------------------
+If you modify fields used inside hashCode(), object becomes unreachable inside HashMap/HashSet even though it still exists.
+
+Best Practices
+--------------
+- Always override hashCode() when overriding equals()
+- Use immutable fields inside equals/hashCode if possible
+- Prefer Objects.equals() for null safety
+- Avoid clone(), prefer copy constructors
+- Avoid finalize()
+
+Interview Questions
+-------------------
+1. == vs equals()
+2. Why equals() and hashCode() must be overridden together?
+3. getClass() vs instanceof in equals()
+4. What happens if hashCode() is not consistent?
+5. Shallow vs Deep copy
+6. How HashMap uses hashCode() and equals()
+7. Why finalize() is deprecated?
+
+Quick Checklist
+---------------
+- Did you override toString()?
+- Did you override equals() and hashCode() consistently?
+- Are fields used in hashCode() immutable?
+- Is clone() really necessary?
+- Use Objects.equals() and Objects.hash() if helpful.
+
+Summary
+-------
+- All Java classes inherit from Object.
+- Overriding toString(), equals(), and hashCode() is essential for debugging and collections.
+- Avoid finalize() and clone() when possible.
+- Use correct equality semantics for predictable behavior in Java programs.
+
+END OF OBJECT CLASS NOTES
